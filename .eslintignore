@@ -1,3 +1,4 @@
 node_modules
 .env
 src/models/index.js
+src/migrations
