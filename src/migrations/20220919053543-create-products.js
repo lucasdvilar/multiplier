@@ -30,7 +30,7 @@ module.exports = {
       },
       valor: {
         allowNull: false,
-        type: Sequelize.DECIMAL,
+        type: Sequelize.DECIMAL(5, 2),
       },
       status: {
         allowNull: false,

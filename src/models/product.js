@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     codigo: DataTypes.STRING,
     nome: DataTypes.STRING,
     descricao: DataTypes.STRING,
-    valor: DataTypes.DECIMAL,
+    valor: DataTypes.DECIMAL(5, 2),
     status: DataTypes.BOOLEAN,
   },
   {
