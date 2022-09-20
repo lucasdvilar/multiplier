@@ -19,3 +19,4 @@
 3. Opcões de execução
 - Para executar: `npm start`
 - Para executar em modo de desenvolvimento: `npm run dev`
+- Para testar: `npm test`

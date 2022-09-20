@@ -3,7 +3,6 @@ const request = require('supertest');
 const app = require('../../src/app');
 const {
   categories,
-  category1,
   postCategory,
   postCategoryWithId,
   patchCategory,
@@ -19,7 +18,7 @@ describe('Categories test', () => {
   it('GET /categorias/:id', async () => {
     const res = await request(app).get('/categorias/1');
     expect(res.statusCode).toBe(200);
-    expect(res.body).toEqual(category1);
+    expect(res.body).toEqual(categories[0]);
   });
 
   it('POST /categorias', async () => {

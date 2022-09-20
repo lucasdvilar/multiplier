@@ -13,13 +13,6 @@ const categories = [
   },
 ];
 
-const category1 = {
-  id: 1,
-  codigo: 'c1',
-  titulo: 'Esportes',
-  status: true,
-};
-
 const postCategory = {
   codigo: 'c3',
   titulo: 'Auto',
@@ -38,10 +31,56 @@ const patchCategory = {
   status: false,
 };
 
+const products = [
+  {
+    idCategoria: 1,
+    codigo: 'p1',
+    nome: 'Bola',
+    descricao: 'Bola de futebol',
+    valor: 10.5,
+    status: 1,
+  },
+  {
+    idCategoria: 2,
+    codigo: 'p2',
+    nome: 'Camisa',
+    descricao: 'Camisa branca',
+    valor: 20.9,
+    status: 1,
+  },
+];
+
+const postProduct = {
+  idCategoria: 2,
+  codigo: 'p3',
+  nome: 'Camisa',
+  descricao: 'Camisa preta',
+  valor: 30.9,
+  status: 1,
+};
+
+const postProductWithId = {
+  id: 3,
+  idCategoria: 2,
+  codigo: 'p3',
+  nome: 'Camisa',
+  descricao: 'Camisa preta',
+  valor: 30.9,
+  status: 1,
+};
+
+const patchProduct = {
+  nome: 'Camiseta',
+  valor: 30,
+};
+
 module.exports = {
   categories,
-  category1,
   postCategory,
   postCategoryWithId,
   patchCategory,
+  products,
+  postProduct,
+  postProductWithId,
+  patchProduct,
 };
