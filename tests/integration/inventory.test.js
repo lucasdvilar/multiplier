@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 const request = require('supertest');
 const app = require('../../src/app');
 const { inventory1, patchInventory } = require('./mocks');
