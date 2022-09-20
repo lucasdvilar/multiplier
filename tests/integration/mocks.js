@@ -77,10 +77,11 @@ const patchProduct = {
 };
 
 const inventory1 = {
+  id: 1,
   idProduto: 1,
   quantidade: 10,
   reserva: 2,
-  status: 1,
+  status: true,
 };
 
 const patchInventory = {
