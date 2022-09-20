@@ -4,6 +4,7 @@
 - O README está em português. O código e os commits estão em inglês.
 - Usei ESLint para padronizar o código
 - Node + Express, Sequelize ORM, testes com Jest e commits semânticos foram utilizados pois eram requisitos do desafio
+- Decidi usar a arquitetura MSC(model-service-controller) para organizar o código em camadas que agrupam partes com responsabilidades similares
 
 ## Como rodar
 1. Clone o repositório
