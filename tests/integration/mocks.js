@@ -74,6 +74,17 @@ const patchProduct = {
   valor: 30,
 };
 
+const inventory1 = {
+  idProduto: 1,
+  quantidade: 10,
+  reserva: 2,
+  status: 1,
+};
+
+const patchInventory = {
+  quantidade: 15,
+};
+
 module.exports = {
   categories,
   postCategory,
@@ -83,4 +94,6 @@ module.exports = {
   postProduct,
   postProductWithId,
   patchProduct,
+  inventory1,
+  patchInventory,
 };
