@@ -33,20 +33,22 @@ const patchCategory = {
 
 const products = [
   {
+    id: 1,
     idCategoria: 1,
     codigo: 'p1',
     nome: 'Bola',
     descricao: 'Bola de futebol',
-    valor: 10.5,
-    status: 1,
+    valor: '10.50', // sequelize returns a string to preserve precision
+    status: true,
   },
   {
+    id: 2,
     idCategoria: 2,
     codigo: 'p2',
     nome: 'Camisa',
     descricao: 'Camisa branca',
-    valor: 20.9,
-    status: 1,
+    valor: '20.90',
+    status: true,
   },
 ];
 
@@ -66,7 +68,7 @@ const postProductWithId = {
   nome: 'Camisa',
   descricao: 'Camisa preta',
   valor: 30.9,
-  status: 1,
+  status: true,
 };
 
 const patchProduct = {
