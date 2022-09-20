@@ -5,6 +5,7 @@
 - Usei ESLint para padronizar o código
 - Node + Express, Sequelize ORM, testes com Jest e commits semânticos foram utilizados pois eram requisitos do desafio
 - Decidi usar a arquitetura MSC(model-service-controller) para organizar o código em camadas que agrupam partes com responsabilidades similares
+- Na criação de um produto, decidi setar o status do estoque igual ao status passado ao produto
 
 ## Como rodar
 1. Clone o repositório
