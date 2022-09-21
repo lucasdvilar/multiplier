@@ -11,6 +11,10 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const product = await Product.findByPk(id);
+  if (!product) {
+    const error = { status: 404, message: 'Not found.' };
+    throw error;
+  }
   return product;
 };
 
@@ -34,11 +38,19 @@ const create = async (productInfo) => {
 };
 
 const update = async (id, productInfo) => {
-  await Product.update(productInfo, { where: { id } });
+  const [product] = await Product.update(productInfo, { where: { id } });
+  if (product === 0) {
+    const error = { status: 404, message: 'Not found.' };
+    throw error;
+  }
 };
 
 const remove = async (id) => {
-  await Product.destroy({ where: { id } });
+  const product = await Product.destroy({ where: { id } });
+  if (product === 0) {
+    const error = { status: 404, message: 'Not found.' };
+    throw error;
+  }
 };
 
 module.exports = {
