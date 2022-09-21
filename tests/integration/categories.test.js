@@ -15,10 +15,18 @@ describe('Categories test', () => {
     expect(res.body).toEqual(categories);
   });
 
-  it('GET /categorias/:id', async () => {
-    const res = await request(app).get('/categorias/1');
-    expect(res.statusCode).toBe(200);
-    expect(res.body).toEqual(categories[0]);
+  describe('GET /categorias/:id', () => {
+    it('ok', async () => {
+      const res = await request(app).get('/categorias/1');
+      expect(res.statusCode).toBe(200);
+      expect(res.body).toEqual(categories[0]);
+    });
+
+    it('not found error', async () => {
+      const res = await request(app).get('/categorias/10');
+      expect(res.statusCode).toBe(404);
+      expect(res.body).toEqual({ message: 'Not found.' });
+    });
   });
 
   it('POST /categorias', async () => {
@@ -27,13 +35,29 @@ describe('Categories test', () => {
     expect(res.body).toEqual(postCategoryWithId);
   });
 
-  it('PATCH /categorias/:id', async () => {
-    const res = await request(app).patch('/categorias/3').send(patchCategory);
-    expect(res.statusCode).toBe(204);
+  describe('PATCH /categorias/:id', () => {
+    it('ok', async () => {
+      const res = await request(app).patch('/categorias/3').send(patchCategory);
+      expect(res.statusCode).toBe(204);
+    });
+
+    it('not found error', async () => {
+      const res = await request(app).patch('/categorias/10').send(patchCategory);
+      expect(res.statusCode).toBe(404);
+      expect(res.body).toEqual({ message: 'Not found.' });
+    });
   });
 
-  it('DELETE /categorias/:id', async () => {
-    const res = await request(app).delete('/categorias/3');
-    expect(res.statusCode).toBe(204);
+  describe('DELETE /categorias/:id', () => {
+    it('ok', async () => {
+      const res = await request(app).delete('/categorias/3');
+      expect(res.statusCode).toBe(204);
+    });
+
+    it('not found error', async () => {
+      const res = await request(app).delete('/categorias/10');
+      expect(res.statusCode).toBe(404);
+      expect(res.body).toEqual({ message: 'Not found.' });
+    });
   });
 });

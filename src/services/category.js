@@ -1,4 +1,5 @@
 const { Category } = require('../models');
+const errors = require('../utils/errors');
 
 const getAll = async () => {
   const categories = await Category.findAll();
@@ -7,6 +8,7 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const category = await Category.findByPk(id);
+  if (!category) throw errors.NOT_FOUND;
   return category;
 };
 
@@ -16,14 +18,16 @@ const create = async (categoryInfo) => {
 };
 
 const update = async (id, categoryInfo) => {
-  await Category.update(
+  const [category] = await Category.update(
     { ...categoryInfo },
     { where: { id } },
   );
+  if (category === 0) throw errors.NOT_FOUND;
 };
 
 const remove = async (id) => {
-  await Category.destroy({ where: { id } });
+  const category = await Category.destroy({ where: { id } });
+  if (category === 0) throw errors.NOT_FOUND;
 };
 
 module.exports = {

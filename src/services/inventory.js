@@ -1,11 +1,9 @@
 const { Inventory } = require('../models');
+const errors = require('../utils/errors');
 
 const getById = async (id) => {
   const inventory = await Inventory.findOne({ where: { idProduto: id } });
-  if (!inventory) {
-    const error = { status: 404, message: 'Not found.' };
-    throw error;
-  }
+  if (!inventory) throw errors.NOT_FOUND;
   return inventory;
 };
 
@@ -14,10 +12,7 @@ const update = async (id, inventoryInfo) => {
     { ...inventoryInfo },
     { where: { idProduto: id } },
   );
-  if (inventory === 0) {
-    const error = { status: 404, message: 'Not found.' };
-    throw error;
-  }
+  if (inventory === 0) throw errors.NOT_FOUND;
 };
 
 module.exports = {

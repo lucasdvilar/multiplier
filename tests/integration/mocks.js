@@ -84,6 +84,14 @@ const inventory1 = {
   status: true,
 };
 
+const inventory3 = {
+  id: 3,
+  idProduto: 3,
+  quantidade: 0,
+  reserva: 0,
+  status: true,
+};
+
 const patchInventory = {
   quantidade: 15,
 };
@@ -98,5 +106,6 @@ module.exports = {
   postProductWithId,
   patchProduct,
   inventory1,
+  inventory3,
   patchInventory,
 };

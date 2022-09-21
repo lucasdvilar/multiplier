@@ -22,3 +22,7 @@
 - Para executar: `npm start`
 - Para executar em modo de desenvolvimento: `npm run dev`
 - Para testar: `npm test`
+- Lint: `npm run lint` (ou instalar a extensão ESLint)
+
+## Documentação
+- https://documenter.getpostman.com/view/21027257/2s7Z15F3RB

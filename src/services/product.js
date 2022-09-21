@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const config = require('../config/config');
 const { Product, Inventory } = require('../models');
+const errors = require('../utils/errors');
 
 const sequelize = new Sequelize(config[process.env.NODE_ENV]);
 
@@ -11,6 +12,7 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const product = await Product.findByPk(id);
+  if (!product) throw errors.NOT_FOUND;
   return product;
 };
 
@@ -34,11 +36,13 @@ const create = async (productInfo) => {
 };
 
 const update = async (id, productInfo) => {
-  await Product.update(productInfo, { where: { id } });
+  const [product] = await Product.update(productInfo, { where: { id } });
+  if (product === 0) throw errors.NOT_FOUND;
 };
 
 const remove = async (id) => {
-  await Product.destroy({ where: { id } });
+  const product = await Product.destroy({ where: { id } });
+  if (product === 0) throw errors.NOT_FOUND;
 };
 
 module.exports = {
