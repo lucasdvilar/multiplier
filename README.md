@@ -16,7 +16,7 @@
 - `npm install`
 
 3. Variáveis de ambiente e criação do banco
-- Defina suas variáveis de ambiente de acordo com o arquivo .env.example (lembre de renomear para .env) e crie o banco com npm run prestart
+- Defina suas variáveis de ambiente de acordo com o arquivo .env.example (lembre de renomear para .env) e crie o banco com `npm run prestart`
 
 3. Opcões de execução
 - Para executar: `npm start`
@@ -26,3 +26,10 @@
 
 ## Documentação
 - https://documenter.getpostman.com/view/21027257/2s7Z15F3RB
+
+## Cobertura de testes
+- É possível verificar com `npm test -- --coverage`
+<img src="public/coverage.png" width="800px">
+
+## Diagrama ER
+<img src="public/er_diagram.png" width="800px">
