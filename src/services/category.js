@@ -1,4 +1,5 @@
 const { Category } = require('../models');
+const errors = require('../utils/errors');
 
 const getAll = async () => {
   const categories = await Category.findAll();
@@ -7,10 +8,7 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const category = await Category.findByPk(id);
-  if (!category) {
-    const error = { status: 404, message: 'Not found.' };
-    throw error;
-  }
+  if (!category) throw errors.NOT_FOUND;
   return category;
 };
 
@@ -24,18 +22,12 @@ const update = async (id, categoryInfo) => {
     { ...categoryInfo },
     { where: { id } },
   );
-  if (category === 0) {
-    const error = { status: 404, message: 'Not found.' };
-    throw error;
-  }
+  if (category === 0) throw errors.NOT_FOUND;
 };
 
 const remove = async (id) => {
   const category = await Category.destroy({ where: { id } });
-  if (category === 0) {
-    const error = { status: 404, message: 'Not found.' };
-    throw error;
-  }
+  if (category === 0) throw errors.NOT_FOUND;
 };
 
 module.exports = {
